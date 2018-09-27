@@ -10,22 +10,6 @@
 
 
 
-
-#####################################################
-# Constants
-#####################################################
-readonly version=0.1
-
-
-
-
-#####################################################
-# Global Variables
-#####################################################
-#declare foobar=""
-
-
-
 ######################################################
 #  Install jq a bash JSON tool
 ######################################################
@@ -84,7 +68,6 @@ esac
 
 
 
-
 ######################################################
 #  Check dependances are installed
 ######################################################
@@ -114,22 +97,26 @@ fi
 # for now just create seperate 'videoChunk' folder with
 # for JSON assets (eg EDL, title JSONS) and video files
 # wherever the installation file is put
+
 function setup_directory(){
 
-mkdir -p videochunk
-cd videochunk
+    printf "\n--->\ndownloading files from Github and giving them execute permissions\n"
+    # Pull in files from github and chmod them
+    wget https://github.com/appijumbo/video-chunk/archive/master.zip -O videochunk.zip
 
-# wget -O  xxxxxxxxxxxxxxxxxx  # setup the path and properly pull in files
+    unzip videochunk.zip
 
-mkdir -p assets clips-made scripts
+    rm videochunk.zip
 
+    cd video-chunk-master/
 
+    printf "\nPlease give permissions to allow code to execute\n"
 
-# into a right place, pulling in files from github
-# via wget or simlilar and moving them into those
-# newly created directories 
+    sudo chmod +x install.sh && $(for file in scripts/*; do chmod +x $file; done)
 
+    printf "\nScripts installed\nPlease run as\n    $ ./videochunk.sh\n"
 
+   # In future set up $PATH and putting them into a /bin 
 }
 
 
@@ -138,9 +125,9 @@ mkdir -p assets clips-made scripts
 ######################################################
 # 
 
+setup_directory
 checkDependances
 
-setup_directory
 
 
 
