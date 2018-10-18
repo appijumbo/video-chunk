@@ -23,7 +23,7 @@
 #####################################################
 # Constants
 #####################################################
-readonly version=0.1
+readonly VERSION="0.0.1"
 readonly create_edl_script="create_EDL_v3.sh"
 readonly make_edl_script="make_EDL_v1.sh"
 readonly make_titles_script="make_titles_v1.sh"
