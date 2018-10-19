@@ -27,7 +27,7 @@ function check_jq_n_unzip(){
 
     if [ "$(which jq)" = "" ]; 
         then
-            printf "\nThis script requires jq, a JSON parsing library for bash\nplease allow it to install\n"
+            printf "\n\nThis script requires jq, a JSON parsing library for bash\n--> please allow it to install\n"
             sudo ${distro_repo_command} jq
         else printf "jq installed"
     fi
@@ -59,7 +59,7 @@ local distro=$(uname -v | tr '[:upper:]' '[:lower:]' )
 
 case $distro in
     *"ubuntu"* | *"debian"*)
-        printf "\nUbuntu/Debian detected"
+        printf "\nUbuntu/Debian detected\n"
         distro_repo_command="apt install"
         check_jq_n_unzip
         clear
@@ -184,12 +184,15 @@ function download_n_install(){
 function setup_directory_n_install(){
     local home_users=$(cat /etc/passwd | grep /home | grep -v cups | grep -v syslog | cut -d: -f1)
 
-    printf "Your current home users are belived to be --> ${home_users}\nYou are logged in as $(whoami)\n"
+    printf "Your current home users are belived to be --> 
+    ${home_users}\nYou are logged in as $(whoami)\n"
 
     # Find out if in root or a 'home' directory
     if [ $home_directory == "/root" ]
     then
-        printf "\nPlease ensure you are in your desired home directory, not root,and\nre-execute $ bash install.sh    \nThankyou.\nYour user options are believed to be ${home_users}\n"
+        printf "\nPlease ensure you are in your desired home directory,
+        not root,and\nre-execute $ bash install.sh
+        \nThankyou.\nYour user options are believed to be ${home_users}\n"
         exit 11
     else
        download_n_install
@@ -203,7 +206,6 @@ function setup_directory_n_install(){
 #  MAIN
 ######################################################
 
-setup_directory
 detect_distro
 setup_directory_n_install  
 
