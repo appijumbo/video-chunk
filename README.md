@@ -93,7 +93,7 @@ Make an edit decision list (EDL) for a video ie 'in' and 'out' points
 
 ``$ videochunk --make-edl videoFilename``
 
-``$ videochunck -E videoFilename``
+``$ videochunk -E videoFilename``
 
 Make simple titles for a video (words, background and position)
 
