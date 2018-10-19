@@ -48,6 +48,7 @@ The main 'chunking' has already been done
 ## DirectoryStructure
 
 ``videochunk/
+
                     |
                     | README
                     |
