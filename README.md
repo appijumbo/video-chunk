@@ -45,7 +45,7 @@ Multiple videos
 Eventually will have a flag option that indicates a directory of files to be batched processed
 The main 'chunking' has already been done
 
-## DirectoryStructure
+## Directory Structure
 
 ``videochunk/
 
